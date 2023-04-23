@@ -279,6 +279,12 @@ Lerp1.visibleInInspector = false;
 Lerp1.visibleOnFrame = false;
 Lerp1.target = 4;
 
+// LerpBlock
+var Lerp2 = new BABYLON.LerpBlock("Lerp");
+Lerp2.visibleInInspector = false;
+Lerp2.visibleOnFrame = false;
+Lerp2.target = 4;
+
 // MultiplyBlock
 var Multiply2 = new BABYLON.MultiplyBlock("Multiply");
 Multiply2.visibleInInspector = false;
@@ -388,11 +394,11 @@ VectorMerger2.ySwizzle = "y";
 VectorMerger2.zSwizzle = "z";
 VectorMerger2.wSwizzle = "w";
 
-// SubtractBlock
-var Subtract2 = new BABYLON.SubtractBlock("Subtract");
-Subtract2.visibleInInspector = false;
-Subtract2.visibleOnFrame = false;
-Subtract2.target = 4;
+// AddBlock
+var Add2 = new BABYLON.AddBlock("Add");
+Add2.visibleInInspector = false;
+Add2.visibleOnFrame = false;
+Add2.target = 4;
 
 // MultiplyBlock
 var Multiply6 = new BABYLON.MultiplyBlock("Multiply");
@@ -423,11 +429,11 @@ CloudSize.matrixMode = 0;
 CloudSize.animationType = BABYLON.AnimatedInputBlockTypes.None;
 CloudSize.isConstant = false;
 
-// AddBlock
-var Add2 = new BABYLON.AddBlock("Add");
-Add2.visibleInInspector = false;
-Add2.visibleOnFrame = false;
-Add2.target = 4;
+// SubtractBlock
+var Subtract2 = new BABYLON.SubtractBlock("Subtract");
+Subtract2.visibleInInspector = false;
+Subtract2.visibleOnFrame = false;
+Subtract2.target = 4;
 
 // SimplexPerlin3DBlock
 var SimplexPerlinD = new BABYLON.SimplexPerlin3DBlock("SimplexPerlin3D");
@@ -473,25 +479,25 @@ VectorMerger4.zSwizzle = "z";
 VectorMerger4.wSwizzle = "w";
 
 // InputBlock
-var BaseColorSpeed = new BABYLON.InputBlock("BaseColorSpeed");
-BaseColorSpeed.visibleInInspector = false;
-BaseColorSpeed.visibleOnFrame = false;
-BaseColorSpeed.target = 1;
-BaseColorSpeed.value = 0.1;
-BaseColorSpeed.min = 0;
-BaseColorSpeed.max = 0;
-BaseColorSpeed.isBoolean = false;
-BaseColorSpeed.matrixMode = 0;
-BaseColorSpeed.animationType = BABYLON.AnimatedInputBlockTypes.None;
-BaseColorSpeed.isConstant = false;
+var BaseTextureSpeed = new BABYLON.InputBlock("BaseTextureSpeed");
+BaseTextureSpeed.visibleInInspector = false;
+BaseTextureSpeed.visibleOnFrame = false;
+BaseTextureSpeed.target = 1;
+BaseTextureSpeed.value = 0.1;
+BaseTextureSpeed.min = 0;
+BaseTextureSpeed.max = 0;
+BaseTextureSpeed.isBoolean = false;
+BaseTextureSpeed.matrixMode = 0;
+BaseTextureSpeed.animationType = BABYLON.AnimatedInputBlockTypes.None;
+BaseTextureSpeed.isConstant = false;
 
 // InputBlock
-var Vector1 = new BABYLON.InputBlock("Vector2");
-Vector1.visibleInInspector = false;
-Vector1.visibleOnFrame = false;
-Vector1.target = 1;
-Vector1.value = new BABYLON.Vector2(10, 5);
-Vector1.isConstant = false;
+var BaseTextureRepeat = new BABYLON.InputBlock("BaseTextureRepeat");
+BaseTextureRepeat.visibleInInspector = false;
+BaseTextureRepeat.visibleOnFrame = false;
+BaseTextureRepeat.target = 1;
+BaseTextureRepeat.value = new BABYLON.Vector2(10, 5);
+BaseTextureRepeat.isConstant = false;
 
 // InputBlock
 var Color = new BABYLON.InputBlock("Color3");
@@ -500,6 +506,57 @@ Color.visibleOnFrame = false;
 Color.target = 1;
 Color.value = new BABYLON.Color3(0.24705882352941178, 0.23137254901960785, 0.30196078431372547);
 Color.isConstant = false;
+
+// MultiplyBlock
+var Multiply8 = new BABYLON.MultiplyBlock("Multiply");
+Multiply8.visibleInInspector = false;
+Multiply8.visibleOnFrame = false;
+Multiply8.target = 4;
+
+// TextureBlock
+var Texture2 = new BABYLON.TextureBlock("Texture");
+Texture2.visibleInInspector = false;
+Texture2.visibleOnFrame = false;
+Texture2.target = 3;
+Texture2.convertToGammaSpace = false;
+Texture2.convertToLinearSpace = false;
+Texture2.disableLevelMultiplication = false;
+Texture2.texture = new BABYLON.Texture("data:octet/stream;base64,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", null, false, false, 3);
+Texture2.texture.wrapU = 1;
+Texture2.texture.wrapV = 1;
+Texture2.texture.uAng = 0;
+Texture2.texture.vAng = 0;
+Texture2.texture.wAng = 0;
+Texture2.texture.uOffset = 0;
+Texture2.texture.vOffset = 0;
+Texture2.texture.uScale = 1;
+Texture2.texture.vScale = 1;
+Texture2.texture.coordinatesMode = 7;
+
+// MultiplyBlock
+var Multiply9 = new BABYLON.MultiplyBlock("Multiply");
+Multiply9.visibleInInspector = false;
+Multiply9.visibleOnFrame = false;
+Multiply9.target = 4;
+
+// SubtractBlock
+var Subtract3 = new BABYLON.SubtractBlock("Subtract");
+Subtract3.visibleInInspector = false;
+Subtract3.visibleOnFrame = false;
+Subtract3.target = 4;
+
+// InputBlock
+var uv2 = new BABYLON.InputBlock("uv");
+uv2.visibleInInspector = false;
+uv2.visibleOnFrame = false;
+uv2.target = 1;
+uv2.setAsAttribute("uv");
+
+// AddBlock
+var Add3 = new BABYLON.AddBlock("Add");
+Add3.visibleInInspector = false;
+Add3.visibleOnFrame = false;
+Add3.target = 4;
 
 // VectorMergerBlock
 var VectorMerger5 = new BABYLON.VectorMergerBlock("VectorMerger");
@@ -510,6 +567,102 @@ VectorMerger5.xSwizzle = "x";
 VectorMerger5.ySwizzle = "y";
 VectorMerger5.zSwizzle = "z";
 VectorMerger5.wSwizzle = "w";
+
+// MultiplyBlock
+var Multiply10 = new BABYLON.MultiplyBlock("Multiply");
+Multiply10.visibleInInspector = false;
+Multiply10.visibleOnFrame = false;
+Multiply10.target = 4;
+
+// InputBlock
+var Time2 = new BABYLON.InputBlock("Time");
+Time2.visibleInInspector = false;
+Time2.visibleOnFrame = false;
+Time2.target = 1;
+Time2.value = 0;
+Time2.min = 0;
+Time2.max = 0;
+Time2.isBoolean = false;
+Time2.matrixMode = 0;
+Time2.animationType = BABYLON.AnimatedInputBlockTypes.Time;
+Time2.isConstant = false;
+
+// InputBlock
+var DetailTextureSpeed = new BABYLON.InputBlock("DetailTextureSpeed");
+DetailTextureSpeed.visibleInInspector = false;
+DetailTextureSpeed.visibleOnFrame = false;
+DetailTextureSpeed.target = 1;
+DetailTextureSpeed.value = 0.05;
+DetailTextureSpeed.min = 0;
+DetailTextureSpeed.max = 0;
+DetailTextureSpeed.isBoolean = false;
+DetailTextureSpeed.matrixMode = 0;
+DetailTextureSpeed.animationType = BABYLON.AnimatedInputBlockTypes.None;
+DetailTextureSpeed.isConstant = false;
+
+// InputBlock
+var DetailTextureRepeat = new BABYLON.InputBlock("DetailTextureRepeat");
+DetailTextureRepeat.visibleInInspector = false;
+DetailTextureRepeat.visibleOnFrame = false;
+DetailTextureRepeat.target = 1;
+DetailTextureRepeat.value = new BABYLON.Vector2(15, 2);
+DetailTextureRepeat.isConstant = false;
+
+// VectorMergerBlock
+var VectorMerger6 = new BABYLON.VectorMergerBlock("VectorMerger");
+VectorMerger6.visibleInInspector = false;
+VectorMerger6.visibleOnFrame = false;
+VectorMerger6.target = 4;
+VectorMerger6.xSwizzle = "x";
+VectorMerger6.ySwizzle = "y";
+VectorMerger6.zSwizzle = "z";
+VectorMerger6.wSwizzle = "w";
+
+// InputBlock
+var DetailBrightness = new BABYLON.InputBlock("DetailBrightness");
+DetailBrightness.visibleInInspector = false;
+DetailBrightness.visibleOnFrame = false;
+DetailBrightness.target = 1;
+DetailBrightness.value = 0.3;
+DetailBrightness.min = 0;
+DetailBrightness.max = 0;
+DetailBrightness.isBoolean = false;
+DetailBrightness.matrixMode = 0;
+DetailBrightness.animationType = BABYLON.AnimatedInputBlockTypes.None;
+DetailBrightness.isConstant = false;
+
+// VectorMergerBlock
+var VectorMerger7 = new BABYLON.VectorMergerBlock("VectorMerger");
+VectorMerger7.visibleInInspector = false;
+VectorMerger7.visibleOnFrame = false;
+VectorMerger7.target = 4;
+VectorMerger7.xSwizzle = "x";
+VectorMerger7.ySwizzle = "y";
+VectorMerger7.zSwizzle = "z";
+VectorMerger7.wSwizzle = "w";
+
+// InputBlock
+var DetailIntensity = new BABYLON.InputBlock("DetailIntensity");
+DetailIntensity.visibleInInspector = false;
+DetailIntensity.visibleOnFrame = false;
+DetailIntensity.target = 1;
+DetailIntensity.value = 0.65;
+DetailIntensity.min = 0;
+DetailIntensity.max = 0;
+DetailIntensity.isBoolean = false;
+DetailIntensity.matrixMode = 0;
+DetailIntensity.animationType = BABYLON.AnimatedInputBlockTypes.None;
+DetailIntensity.isConstant = false;
+
+// VectorMergerBlock
+var VectorMerger8 = new BABYLON.VectorMergerBlock("VectorMerger");
+VectorMerger8.visibleInInspector = false;
+VectorMerger8.visibleOnFrame = false;
+VectorMerger8.target = 4;
+VectorMerger8.xSwizzle = "x";
+VectorMerger8.ySwizzle = "y";
+VectorMerger8.zSwizzle = "z";
+VectorMerger8.wSwizzle = "w";
 
 // InputBlock
 var Float1 = new BABYLON.InputBlock("Float");
@@ -550,16 +703,16 @@ ColorSplitter.visibleOnFrame = false;
 ColorSplitter.target = 4;
 
 // AddBlock
-var Add3 = new BABYLON.AddBlock("Add");
-Add3.visibleInInspector = false;
-Add3.visibleOnFrame = false;
-Add3.target = 4;
-
-// AddBlock
 var Add4 = new BABYLON.AddBlock("Add");
 Add4.visibleInInspector = false;
 Add4.visibleOnFrame = false;
 Add4.target = 4;
+
+// AddBlock
+var Add5 = new BABYLON.AddBlock("Add");
+Add5.visibleInInspector = false;
+Add5.visibleOnFrame = false;
+Add5.target = 4;
 
 // DivideBlock
 var Divide = new BABYLON.DivideBlock("Divide");
@@ -581,10 +734,10 @@ Float3.animationType = BABYLON.AnimatedInputBlockTypes.None;
 Float3.isConstant = false;
 
 // LerpBlock
-var Lerp2 = new BABYLON.LerpBlock("Lerp");
-Lerp2.visibleInInspector = false;
-Lerp2.visibleOnFrame = false;
-Lerp2.target = 4;
+var Lerp3 = new BABYLON.LerpBlock("Lerp");
+Lerp3.visibleInInspector = false;
+Lerp3.visibleOnFrame = false;
+Lerp3.target = 4;
 
 // InputBlock
 var Float4 = new BABYLON.InputBlock("Float");
@@ -751,32 +904,32 @@ FragmentOutput.convertToLinearSpace = false;
 FragmentOutput.useLogarithmicDepth = false;
 
 // LerpBlock
-var Lerp3 = new BABYLON.LerpBlock("Lerp");
-Lerp3.visibleInInspector = false;
-Lerp3.visibleOnFrame = false;
-Lerp3.target = 4;
+var Lerp4 = new BABYLON.LerpBlock("Lerp");
+Lerp4.visibleInInspector = false;
+Lerp4.visibleOnFrame = false;
+Lerp4.target = 4;
+
+// InputBlock
+var Vector1 = new BABYLON.InputBlock("Vector3");
+Vector1.visibleInInspector = false;
+Vector1.visibleOnFrame = false;
+Vector1.target = 1;
+Vector1.value = new BABYLON.Vector3(0.2, 0, 0.2);
+Vector1.isConstant = false;
+
+// MultiplyBlock
+var Multiply11 = new BABYLON.MultiplyBlock("Multiply");
+Multiply11.visibleInInspector = false;
+Multiply11.visibleOnFrame = false;
+Multiply11.target = 4;
 
 // InputBlock
 var Vector2 = new BABYLON.InputBlock("Vector3");
 Vector2.visibleInInspector = false;
 Vector2.visibleOnFrame = false;
 Vector2.target = 1;
-Vector2.value = new BABYLON.Vector3(0.2, 0, 0.2);
+Vector2.value = new BABYLON.Vector3(0.01, 0.01, 0.01);
 Vector2.isConstant = false;
-
-// MultiplyBlock
-var Multiply8 = new BABYLON.MultiplyBlock("Multiply");
-Multiply8.visibleInInspector = false;
-Multiply8.visibleOnFrame = false;
-Multiply8.target = 4;
-
-// InputBlock
-var Vector3 = new BABYLON.InputBlock("Vector3");
-Vector3.visibleInInspector = false;
-Vector3.visibleOnFrame = false;
-Vector3.target = 1;
-Vector3.value = new BABYLON.Vector3(0.01, 0.01, 0.01);
-Vector3.isConstant = false;
 
 // TransformBlock
 var WorldPosViewProjectionTransform = new BABYLON.TransformBlock("WorldPos * ViewProjectionTransform");
@@ -834,15 +987,34 @@ BaseColorDark.output.connectTo(Lerp.left);
 BaseColorLight.output.connectTo(Lerp.right);
 uv1.output.connectTo(Subtract1.left);
 Time1.output.connectTo(Multiply4.left);
-BaseColorSpeed.output.connectTo(Multiply4.right);
+BaseTextureSpeed.output.connectTo(Multiply4.right);
 Multiply4.output.connectTo(VectorMerger1.y);
 VectorMerger1.xy.connectTo(Subtract1.right);
 Subtract1.output.connectTo(Multiply3.left);
-Vector1.output.connectTo(Multiply3.right);
+BaseTextureRepeat.output.connectTo(Multiply3.right);
 Multiply3.output.connectTo(Texture1.uv);
 Texture1.rgb.connectTo(Multiply2.left);
 Color.output.connectTo(Multiply2.right);
-Multiply2.output.connectTo(Lerp1.left);
+Multiply2.output.connectTo(Lerp2.left);
+uv2.output.connectTo(Subtract3.left);
+Time2.output.connectTo(Multiply10.left);
+DetailTextureSpeed.output.connectTo(Multiply10.right);
+Multiply10.output.connectTo(VectorMerger5.y);
+VectorMerger5.xy.connectTo(Subtract3.right);
+Subtract3.output.connectTo(Multiply9.left);
+DetailTextureRepeat.output.connectTo(Multiply9.right);
+Multiply9.output.connectTo(Texture2.uv);
+Texture2.rgb.connectTo(Multiply8.left);
+DetailBrightness.output.connectTo(VectorMerger6.x);
+DetailBrightness.output.connectTo(VectorMerger6.y);
+DetailBrightness.output.connectTo(VectorMerger6.z);
+VectorMerger6.xyz.connectTo(Multiply8.right);
+Multiply8.output.connectTo(Lerp2.right);
+DetailIntensity.output.connectTo(VectorMerger7.x);
+DetailIntensity.output.connectTo(VectorMerger7.y);
+DetailIntensity.output.connectTo(VectorMerger7.z);
+VectorMerger7.xyz.connectTo(Lerp2.gradient);
+Lerp2.output.connectTo(Lerp1.left);
 WorldPos.xyz.connectTo(Multiply6.left);
 CloudSize.output.connectTo(VectorMerger3.x);
 CloudSize.output.connectTo(VectorMerger3.y);
@@ -863,10 +1035,10 @@ Multiply7.output.connectTo(VectorMerger4.x);
 Multiply7.output.connectTo(VectorMerger4.y);
 Multiply7.output.connectTo(VectorMerger4.z);
 VectorMerger4.xyz.connectTo(Lerp1.right);
-Float1.output.connectTo(VectorMerger5.x);
-Float1.output.connectTo(VectorMerger5.y);
-Float1.output.connectTo(VectorMerger5.z);
-VectorMerger5.xyz.connectTo(Lerp1.gradient);
+Float1.output.connectTo(VectorMerger8.x);
+Float1.output.connectTo(VectorMerger8.y);
+Float1.output.connectTo(VectorMerger8.z);
+VectorMerger8.xyz.connectTo(Lerp1.gradient);
 Lerp1.output.connectTo(Lerp.gradient);
 Lerp.output.connectTo(PBRMetallicRoughness.baseColor);
 Float7.output.connectTo(PBRMetallicRoughness.metallic);
@@ -876,22 +1048,22 @@ position.output.connectTo(Reflection.position);
 World.output.connectTo(Reflection.world);
 Reflection.reflection.connectTo(PBRMetallicRoughness.reflection);
 ClearCoatintensity.output.connectTo(ClearCoatBlock.intensity);
-Float4.output.connectTo(Lerp2.left);
-Float5.output.connectTo(Lerp2.right);
+Float4.output.connectTo(Lerp3.left);
+Float5.output.connectTo(Lerp3.right);
 Lerp1.output.connectTo(Desaturate.color);
 Float2.output.connectTo(Desaturate.level);
 Desaturate.output.connectTo(ColorSplitter.rgbIn);
-ColorSplitter.r.connectTo(Add3.left);
-ColorSplitter.g.connectTo(Add3.right);
-Add3.output.connectTo(Add4.left);
-ColorSplitter.b.connectTo(Add4.right);
-Add4.output.connectTo(Divide.left);
+ColorSplitter.r.connectTo(Add4.left);
+ColorSplitter.g.connectTo(Add4.right);
+Add4.output.connectTo(Add5.left);
+ColorSplitter.b.connectTo(Add5.right);
+Add5.output.connectTo(Divide.left);
 Float3.output.connectTo(Divide.right);
-Divide.output.connectTo(Lerp2.gradient);
-Lerp2.output.connectTo(ClearCoatBlock.roughness);
+Divide.output.connectTo(Lerp3.gradient);
+Lerp3.output.connectTo(ClearCoatBlock.roughness);
 IndexOfRefraction.output.connectTo(ClearCoatBlock.indexOfRefraction);
 ClearCoatBlock.clearcoat.connectTo(PBRMetallicRoughness.clearcoat);
-Lerp2.output.connectTo(SheenBlock.roughness);
+Lerp3.output.connectTo(SheenBlock.roughness);
 SheenBlock.sheen.connectTo(PBRMetallicRoughness.sheen);
 SubSurfacethickness.output.connectTo(SubSurfaceBlock.thickness);
 Float6.output.connectTo(SubSurfaceBlock.translucencyIntensity);
@@ -905,9 +1077,6 @@ PBRMetallicRoughness.lighting.connectTo(FragmentOutput.rgb);
 nodeMaterial.addOutputNode(VertexOutput);
 nodeMaterial.addOutputNode(FragmentOutput);
 nodeMaterial.build();
-
-    
-
 
     
 
