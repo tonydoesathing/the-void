@@ -4,7 +4,7 @@ import { ArcRotateCamera } from "@babylonjs/core/Cameras/arcRotateCamera";
 import { HemisphericLight } from "@babylonjs/core/Lights/hemisphericLight";
 import { Vector3 } from "@babylonjs/core/Maths/math.vector";
 import { Mesh, MeshBuilder } from "@babylonjs/core/Meshes";
-import { Color3, Color4, HDRCubeTexture, PBRMaterial, PointLight, SceneLoader, UniversalCamera, WebXRFeatureName } from "@babylonjs/core";
+import { Animation, Color3, Color4, HDRCubeTexture, PBRMaterial, PointLight, SceneLoader, UniversalCamera, WebXRFeatureName } from "@babylonjs/core";
 import { voidMaterial } from "./void_material";
 
 
@@ -71,27 +71,17 @@ export async function createScene(): Promise<Scene>{
         disableTeleportation: true
     });
     const xr_cam = xr.baseExperience.camera;
-    xr_cam.position.set(0, 150, -4000);
-    xr_cam.checkCollisions = true;
-    xr_cam.applyGravity = true;
-    xr_cam.ellipsoid = new Vector3(1,5,1);
+    const animations = await Animation.ParseFromFileAsync(null, "resources/animations.json") as Animation[];
+    xr_cam.animations = animations;
+    xr.baseExperience.sessionManager.onXRSessionInit.add(()=>{
+        xr_cam.maxZ=100000;
+        scene.beginAnimation(xr_cam, 0,4000, true);
+    });
 
-    // const feature_manager = xr.baseExperience.featuresManager;
-    // const movementFeature = feature_manager.enableFeature(WebXRFeatureName.MOVEMENT, 'latest',{
-    //     xrInput: xr.input,
-    //     movementOrientationFollowsViewerPose: true,
-    //     movementSpeed: 1,
-    //     movementThreshold: 1
-    // });
     
 
     scene.registerBeforeRender(()=>{
         update(scene);
-        // xr.baseExperience.camera.position.addInPlace(new Vector3(0,0,1));
-        if(xr_cam.position.z<0){
-            xr_cam.cameraDirection.addInPlaceFromFloats(0,0,0.1*Math.log(Math.abs(xr_cam.position.z)));
-        }
-        
     });
     scene.registerAfterRender(()=>{
     });
