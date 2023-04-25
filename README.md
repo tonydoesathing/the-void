@@ -7,4 +7,4 @@ Requires `npm` and Typescript, then run `npm run build`.
 ## Running
 `npm run start`
 
-Try it out [here](https://tonydoesathing/the-void)
+Try it out [here](https://tonydoesathing.github.io/the-void)
