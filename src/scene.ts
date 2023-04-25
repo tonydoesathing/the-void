@@ -4,7 +4,7 @@ import { ArcRotateCamera } from "@babylonjs/core/Cameras/arcRotateCamera";
 import { HemisphericLight } from "@babylonjs/core/Lights/hemisphericLight";
 import { Vector3 } from "@babylonjs/core/Maths/math.vector";
 import { Mesh, MeshBuilder } from "@babylonjs/core/Meshes";
-import { Animation, Camera, Color3, Color4, HDRCubeTexture, PBRMaterial, Plane, PointLight, SceneLoader, UniversalCamera, WebXRFeatureName } from "@babylonjs/core";
+import { Animation, Camera, Color3, Color4, HDRCubeTexture, PBRMaterial, Plane, PointLight, SceneLoader, Sound, UniversalCamera, WebXRFeatureName } from "@babylonjs/core";
 import { voidMaterial } from "./void_material";
 import { AdvancedDynamicTexture, Button } from "@babylonjs/gui/2D";
 import { Rectangle } from "@babylonjs/gui/2D/controls/rectangle";
@@ -105,6 +105,24 @@ export async function createScene(): Promise<Scene>{
         });
     });
     buttons.addControl(button);
+
+    // add sounds
+    const background = new Sound("background", "resources/TheVoidBackground.mp3", scene, null, {
+        loop: true,
+        autoplay: true,
+        spatialSound: true,
+        maxDistance: 4000
+      });
+    background.setPosition(pointlight.position);
+
+    const void_sound = new Sound("void", "resources/VOID.mp3", scene, null, {
+        loop: true,
+        autoplay: true,
+        spatialSound: true,
+        maxDistance: 4000,
+        volume:0.7
+      });
+    void_sound.setPosition(new Vector3(0,-3750,0));
     
     reset();
     return scene;
